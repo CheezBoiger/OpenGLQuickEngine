@@ -170,6 +170,11 @@ struct Vector3 {
   ) : x(v.x), y(v.y), z(z)
     { }
 
+  Vector3(
+    const Vector3 &v
+  ) : x(v.x), y(v.y), z(v.z)
+  { }
+
   // Adds this vector to v, and returns a new
   // 3 component vector.
   Vector3 operator+(const Vector3 &v) const;
@@ -380,9 +385,9 @@ struct Vector2 {
 };
 
 
-typedef Vector3<float> Vec3;
-typedef Vector2<float> Vec2;
-typedef Vector4<float> Vec4;
+typedef Vector3<real32> Vec3;
+typedef Vector2<real32> Vec2;
+typedef Vector4<real32> Vec4;
 } // jkl
 
 #include "internal/vector.inl"

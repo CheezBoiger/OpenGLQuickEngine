@@ -24,6 +24,10 @@ set(ENGINE_DIR engine)
 set(ENGINE_INCLUDE_DIR ${ENGINE_DIR}/include)
 set(ENGINE_SOURCE_DIR  ${ENGINE_DIR}/src)
 set(ENGINE_GLAD_DIR    ${ENGINE_SOURCE_DIR}/glad)
+set(ENGINE_INCLUDE_MATERIAL_DIR ${ENGINE_INCLUDE_DIR}/material)
+set(ENGINE_INCLUDE_MESH_DIR     ${ENGINE_INCLUDE_DIR}/mesh)
+set(ENGINE_SOURCE_MESH_DIR      ${ENGINE_SOURCE_DIR}/mesh)
+set(ENGINE_SOURCE_MATERIAL_DIR  ${ENGINE_SOURCE_DIR}/material)
 
 set(RENDERER_INCLUDE_DIR ${ENGINE_INCLUDE_DIR}/renderer)
 set(RENDERER_SOURCE_DIR ${ENGINE_SOURCE_DIR}/renderer)
@@ -57,6 +61,12 @@ set(ENGINE_CORE
 set(RENDERER_CORE
   ${RENDERER_INCLUDE_DIR}/renderer.hpp
   ${RENDERER_SOURCE_DIR}/renderer.cpp
+  ${RENDERER_INCLUDE_DIR}/command_list.hpp
+  ${RENDERER_INCLUDE_DIR}/render_command.hpp
+  ${RENDERER_INCLUDE_DIR}/render_target.hpp
+  ${RENDERER_SOURCE_DIR}/command_list.cpp
+  ${RENDERER_SOURCE_DIR}/render_command.cpp
+  ${RENDERER_SOURCE_DIR}/render_target.cpp
 )
 
 set(GLAD_CORE 
@@ -65,11 +75,26 @@ set(GLAD_CORE
   ${ENGINE_GLAD_DIR}/khrplatform.h
 )
 
+set(MESH_CORE
+  ${ENGINE_INCLUDE_MESH_DIR}/mesh.hpp
+  ${ENGINE_INCLUDE_MESH_DIR}/vertex.hpp
+  ${ENGINE_SOURCE_MESH_DIR}/mesh.cpp
+)
+
+set(MATERIAL_CORE
+  ${ENGINE_INCLUDE_MATERIAL_DIR}/material.hpp
+  ${ENGINE_INCLUDE_MATERIAL_DIR}/shader_program.hpp
+  ${ENGINE_SOURCE_MATERIAL_DIR}/material.cpp
+  ${ENGINE_SOURCE_MATERIAL_DIR}/shader_program.cpp
+)
+
 set(FILE_GLOB
   ${CORE_MATH}
   ${ENGINE_CORE}
   ${GLAD_CORE}
   ${RENDERER_CORE}
+  ${MESH_CORE}
+  ${MATERIAL_CORE}
 )
 
 if (${CMAKE_CXX_COMPILER_ID})

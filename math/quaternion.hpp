@@ -3,6 +3,7 @@
 // 
 #pragma once
 
+
 #include "common.hpp"
 #include "matrix.hpp"
 #include "vector.hpp"
@@ -133,7 +134,7 @@ struct Quaternion {
   };
 };
 
-typedef Quaternion<float> Quat;
+typedef Quaternion<real32> Quat;
 } // jkl
 
 #include "internal/quaternion.inl"

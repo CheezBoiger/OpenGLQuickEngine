@@ -83,7 +83,7 @@ struct Matrix4x4 {
 
   // Retrieve the raw data array of the matrix. This is mainly used for the rendering engine.
   T *Raw() { 
-    return data; 
+    return data[0]; 
   }
 
   // Quick access to a value in the matrix.
@@ -200,6 +200,10 @@ struct Matrix3x3 {
     return !(*this == m);
   }
 
+  T *Raw() {
+    return data[0];
+  }
+
   // Access the matrix without having to access data.
   T *operator[](const uint32 row) {
     return data[row];
@@ -245,14 +249,18 @@ struct Matrix2x2 {
   T *operator[](const uint32 row) {
     return data[row];
   }
+
+  T *Raw() {
+    return data[0];
+  }
     
   // Data of the matrix.
   T data[2][2];
 };
 
 
-typedef Matrix4x4<float> Mat4;
-typedef Matrix3x3<float> Mat3;
-typedef Matrix2x2<float> Mat2;
+typedef Matrix4x4<real32> Mat4;
+typedef Matrix3x3<real32> Mat3;
+typedef Matrix2x2<real32> Mat2;
 } // jkl
 #include "internal/matrix.inl"
